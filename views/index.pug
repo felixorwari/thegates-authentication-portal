@@ -1,5 +1,13 @@
 extends layout
 
+block variables
+  - var title = "Home"
+
 block content
-  h1= title
-  p Welcome to #{title}
+  h2.text-center Serverless Authentication App
+
+  .row
+    .offset-sm-2.col-sm-8
+      .jumbotron.text-center.
+        Welcome to your new Authentication app! Please visit the
+        #[a(href="https://github.com/felixorwari/thegates-authentication-portal", title="thegates-authentication-portal on GitHub") GitHub page] to learn more.

@@ -1,7 +1,28 @@
+block variables
+
 doctype html
-html
+html(lang="en")
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    title Authentication Portal: #{title}
   body
-    block content
+    div.top-bar.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      h5.my-0.mr-md-auto.font-weight-normal
+        a(href="/", title="TheGates") theGates Authentication Port
+      nav.my-2.my-md-0.mr-md-3
+        a.p-2.text-dark(href="/", title="Home") Home
+
+        if user == undefined
+          a.p-2.text-dark(href="/users/login") Log In / Register
+        else
+          a.p-2.text-dark(href="/dashboard") Dashboard
+          a.p-2.text-dark(href="/users/logout") Logout
+    .container
+      block content
+
+    footer.
+      Built with #[a(href="https://expressjs.com/") Express.js], login powered by #[a(href="https://developer.okta.com/") Okta].
